@@ -31,11 +31,11 @@ public class PageLoop { // класс который, определяет ло�
                 System.out.println("Неверное значение страницы");
             } else if (value == fullSize) {
                 break;
-            } else if (value < getChildrenSize()) {
+            } else if ((value - 1) < getChildrenSize()) {
                 AppView selectedView = view.children.get(value - 1);
                 new PageLoop(selectedView).run();
             } else {
-                if (value == getChildrenSize() && view.hasNextPage) {
+                if ((value - 1) == getChildrenSize() && view.hasNextPage) {
                     view.nowPage++;
                     new PageLoop(view).run();
                 } else {
